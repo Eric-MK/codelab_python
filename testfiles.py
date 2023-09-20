@@ -1,10 +1,13 @@
 import pandas as pd
 
-# Replace 'your_file.xlsx' with the path to your Excel file
-file_path = 'C:\\Users\\Eric\\Desktop\\graphics\\Test Files.xlsx'
+# Specify the absolute path to your Excel file
+file_path = r'C:\Users\Eric\Desktop\graphics\Test Files.xlsx'
 
-# Read the Excel file into a DataFrame
-df = pd.read_excel(file_path)
+# Specify the sheet name you want to read (in this case, "3B")
+sheet_name = "3B"
 
-# Display the first few rows of the DataFrame
-print(df.head())
+# Read the specified sheet into a DataFrame
+df = pd.read_excel(file_path, sheet_name=sheet_name)
+
+# Display the data from the "3B" sheet
+print(df)
