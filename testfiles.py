@@ -22,14 +22,14 @@ def generate_email(student_name, email_domain):
     name_parts = student_name.split(', ')
     
     # Extract the first and last names
-    if len(name_parts) == 3:
-        last_name, first_name, second_name = name_parts
+    if len(name_parts) == 2:
+        last_name, first_name = name_parts
     else:
-        last_name = name_parts[0]
-        second_name = ""
+        first_name = name_parts[0]
+        last_name = ""
     
     # Take the first letter of the first name and concatenate it with the last name
-    email = f"{last_name[0].lower()}{second_name.lower()}@{email_domain}"
+    email = f"{last_name[0].lower()}{first_name.lower()}@{email_domain}"
     
     return email
 
