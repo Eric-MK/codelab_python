@@ -39,7 +39,7 @@ def generate_unique_email(student_name, email_domain):
     if len(name_parts) >= 1:
         last_name = name_parts[0]
     if len(name_parts) >= 2:
-        first_name = name_parts[1]
+        middle_name = name_parts[1]
     if len(name_parts) >= 3:
         middle_name = name_parts[2]
     if len(name_parts) >= 4:
@@ -61,4 +61,16 @@ def generate_unique_email(student_name, email_domain):
 df['Email Address'] = df['Student Name'].apply(lambda x: generate_unique_email(x, email_domain))
 
 # Display the DataFrame with the newly generated email addresses
-print(df[['Student Name', 'Email Address']])
+""" print(df[['Student Name', 'Email Address']]) """
+
+# Save as TSV (Tab-Separated Values)
+tsv_file_path = r'C:\Users\Eric\Desktop\graphics\TestyyFilesemail.tsv'
+df.to_csv(tsv_file_path, sep='\t', index=False)
+
+    # Save as CSV (Comma-Separated Values)
+csv_file_path = r'C:\Users\Eric\Desktop\graphics\TestyyFilesemail.csv'
+df.to_csv(csv_file_path, index=False)
+
+print(f"DataFrame saved as TSV: {tsv_file_path}")
+print(f"DataFrame saved as CSV: {csv_file_path}")
+
